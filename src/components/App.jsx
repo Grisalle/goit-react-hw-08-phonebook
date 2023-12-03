@@ -3,7 +3,6 @@ import { useDispatch } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
 import { SharedLayout } from './SharedLayout/SharedLayout';
 import { refreshThunk } from 'redux/auth/auth.reducer';
-import css from './App.module.css';
 
 const Home = lazy(() => import('pages/HomePage'));
 const Registrated = lazy(() => import('pages/RegistratedPage'));
