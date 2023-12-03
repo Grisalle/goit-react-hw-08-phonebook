@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkgrisalle_react_hw_08=self.webpackChunkgrisalle_react_hw_08||[]).push([[983],{3983:function(e,r,a){a.r(r);var c=a(184);r.default=function(){return(0,c.jsx)("div",{children:"HomePage"})}}}]);
+//# sourceMappingURL=983.06845c04.chunk.js.map
