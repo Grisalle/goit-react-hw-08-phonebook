@@ -1,36 +1,34 @@
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { ContactForm } from './ContactForm/ContactForm';
-import { ContactList } from './ContactList/ContactList';
-import { Search } from './Search/Search';
-import { Loader } from './Loader/Loader';
-import { fetchAllContacts } from 'redux/phone.reducer';
-import { selectIsLoading, selectError } from 'redux/phone.selectors';
+import { useEffect, lazy } from 'react';
+import { useDispatch } from 'react-redux';
+import { Route, Routes } from 'react-router-dom';
+import { SharedLayout } from './SharedLayout/SharedLayout';
+import { refreshThunk } from 'redux/auth/auth.reducer';
 import css from './App.module.css';
+
+const Home = lazy(() => import('pages/HomePage'));
+const Registrated = lazy(() => import('pages/RegistratedPage'));
+const LogIn = lazy(() => import('pages/LogInPage'));
+const Contacts = lazy(() => import('pages/ContactsPage'));
 
 export const App = () => {
   const dispatch = useDispatch();
 
-  const isLoading = useSelector(selectIsLoading);
-  const errorMessage = useSelector(selectError);
-
   useEffect(() => {
-    dispatch(fetchAllContacts());
+    dispatch(refreshThunk());
   }, [dispatch]);
 
   return (
     <section className="section">
       <div className="container">
-        <h1 className={css.title}>Phone book</h1>
-        <ContactForm />
-        <h2 className={css.contactsTitle}>Contacts</h2>
-        <p className={css.search}>Find contacts by name</p>
-        <Search />
-        {isLoading && <Loader />}
-        {errorMessage && (
-          <div>Something went wrong. Error message: {errorMessage}</div>
-        )}
-        <ContactList />
+        <Routes>
+          <Route path="/" element={<SharedLayout />}>
+            <Route index element={<Home />} />
+            <Route path="/register" element={<Registrated />} />
+            <Route path="/login" element={<LogIn />} />
+            <Route path="/contacts" element={<Contacts />} />
+          </Route>
+          <Route path="*" element={<Home />} />
+        </Routes>
       </div>
     </section>
   );
