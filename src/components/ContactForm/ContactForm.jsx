@@ -7,7 +7,7 @@ import css from './ContactForm.module.css';
 
 export const ContactForm = () => {
   const [name, setName] = useState('');
-  const [phone, setPhone] = useState('');
+  const [number, setNumber] = useState('');
 
   const dispatch = useDispatch();
   const contacts = useSelector(selectContacts);
@@ -17,7 +17,7 @@ export const ContactForm = () => {
   };
 
   const handleNumberChange = event => {
-    setPhone(event.target.value);
+    setNumber(event.target.value);
   };
 
   const handleSubmit = event => {
@@ -25,7 +25,7 @@ export const ContactForm = () => {
 
     const contact = {
       name,
-      phone,
+      number,
     };
 
     if (
@@ -44,7 +44,7 @@ export const ContactForm = () => {
 
     dispatch(fetchAddContact(newContact));
     setName('');
-    setPhone('');
+    setNumber('');
     event.target.lastElementChild.blur();
   };
 
@@ -69,7 +69,7 @@ export const ContactForm = () => {
         <input
           className={css.inputNumber}
           type="tel"
-          value={phone}
+          value={number}
           onChange={handleNumberChange}
           name="number"
           maxLength="13"

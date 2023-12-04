@@ -10,7 +10,7 @@ export const ContactItem = ({ contact }) => {
     <li className={css.contactItem} id={contact.id}>
       <p>
         <span className={css.userName}>{`${contact.name}: `}</span>
-        {`${contact.phone}`}
+        {`${contact.number}`}
       </p>
       <DeleteButton
         handleDeleteUser={() => dispatch(fetchDeleteContact(contact.id))}
