@@ -19,20 +19,18 @@ const ContactsPage = () => {
   }, [dispatch]);
 
   return (
-    <section className="section">
-      <div className="container">
-        <h1 className={css.title}>Phone book</h1>
-        <ContactForm />
-        <h2 className={css.contactsTitle}>Contacts</h2>
-        <p className={css.search}>Find contacts by name</p>
-        <Search />
-        {isLoading && <Loader />}
-        {errorMessage && (
-          <div>Something went wrong. Error message: {errorMessage}</div>
-        )}
-        <ContactList />
-      </div>
-    </section>
+    <div>
+      <h1 className={css.title}>Phone book</h1>
+      <ContactForm />
+      <h2 className={css.contactsTitle}>Contacts</h2>
+      <p className={css.search}>Find contacts by name</p>
+      <Search />
+      {isLoading && <Loader />}
+      {errorMessage && (
+        <div>Something went wrong. Error message: {errorMessage}</div>
+      )}
+      <ContactList />
+    </div>
   );
 };
 

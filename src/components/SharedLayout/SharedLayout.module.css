@@ -1,0 +1,14 @@
+/* .header {
+    display: flex;
+    align-content: stretch;
+} */
+
+.navLink {
+    width: 50%;
+    color: #fff;
+    background-color: brown;
+    font-size: 20px;
+    padding: 10px;
+    border: 1px solid #090044;
+    display: inline-flex;
+}

@@ -31,9 +31,9 @@ export const App = () => {
               <Route
                 path={ROUTES.HOME_ROUTE}
                 element={
-                  <RestrictedRoute>
+                  <PrivateRoute>
                     <Home />
-                  </RestrictedRoute>
+                  </PrivateRoute>
                 }
               ></Route>
 

@@ -7,6 +7,7 @@ export const Search = () => {
 
   return (
     <input
+      placeholder="Enter contact name"
       className={css.search}
       onChange={event => dispatch(filterContact(event.target.value))}
     />

@@ -58,6 +58,7 @@ export const ContactForm = () => {
           value={name}
           onChange={handleNameChange}
           name="name"
+          placeholder="Example: John Connor"
           maxLength="16"
           pattern="^[a-zA-Zа-яА-Я]+(([' \-][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
           title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
@@ -72,6 +73,7 @@ export const ContactForm = () => {
           value={number}
           onChange={handleNumberChange}
           name="number"
+          placeholder="Example: +380XXXXXXXXX"
           maxLength="13"
           pattern="\+?\d{1,4}?[.\-\s]?\(?\d{1,3}?\)?[.\-\s]?\d{1,4}[.\-\s]?\d{1,4}[.\-\s]?\d{1,9}"
           title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"

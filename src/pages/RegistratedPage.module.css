@@ -1,11 +1,12 @@
-.contactForm {
-    display: flex;
-    flex-direction: column;
-    margin-top: 24px;
-    gap: 16px;
+.form {
+    margin-top: 32px;
 }
 
-.inputName {
+.title {
+    margin-top: 12px;
+}
+
+.input {
     margin-top: 4px;
     width: 300px;
     height: 32px;
@@ -16,18 +17,8 @@
     border-radius: 4px;
 }
 
-.inputNumber {
-    margin-top: 4px;
-    width: 300px;
-    height: 32px;
-    color: #fff;
-    padding: 8px;
-    background-color: transparent;
-    border: solid 1px rgba(255, 255, 255, 0.5);
-    border-radius: 4px;
-}
-
-.addBtn {
+.btn {
+    margin-top: 20px;
     width: 160px;
     height: 32px;
     font-weight: 500;
@@ -42,7 +33,7 @@
     border-radius: 4px;
 }
 
-.addBtn:hover,
-.addBtn:focus {
+.btn:hover,
+.btn:focus {
     background-color: brown;
 }

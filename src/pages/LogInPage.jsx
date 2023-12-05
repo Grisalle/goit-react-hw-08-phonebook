@@ -1,5 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { loginThunk } from 'redux/auth/auth.reducer';
+import css from './LogInPage.module.css';
 
 const LogInPage = () => {
   const dispatch = useDispatch();
@@ -17,10 +18,11 @@ const LogInPage = () => {
     dispatch(loginThunk(formData));
   };
   return (
-    <form onSubmit={onSubmit}>
+    <form className={css.form} onSubmit={onSubmit}>
       <label>
-        <p>Email:</p>
+        <p className={css.emailTitle}>Email:</p>
         <input
+          className={css.input}
           type="email"
           placeholder="Enter your email"
           required
@@ -28,8 +30,9 @@ const LogInPage = () => {
         />
       </label>
       <label>
-        <p>Password:</p>
+        <p className={css.passwordTitle}>Password:</p>
         <input
+          className={css.input}
           type="password"
           placeholder="Enter your password"
           required
@@ -39,7 +42,9 @@ const LogInPage = () => {
         />
       </label>
       <br />
-      <button type="submit">Sign In</button>
+      <button className={css.btn} type="submit">
+        Sign In
+      </button>
     </form>
   );
 };
