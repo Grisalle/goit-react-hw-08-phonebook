@@ -18,6 +18,7 @@ export const loginThunk = createAsyncThunk(
       setToken(data.token);
       return data;
     } catch (err) {
+      alert('Incorrect login or password');
       return thunkApi.rejectWithValue(err.message);
     }
   }
