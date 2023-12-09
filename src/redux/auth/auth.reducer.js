@@ -45,7 +45,6 @@ export const refreshThunk = createAsyncThunk(
       return thunkApi.rejectWithValue('Unable to fetch user');
     }
     setToken(token);
-
     try {
       const { data } = await instance.get('/users/current');
       return data;
@@ -53,14 +52,6 @@ export const refreshThunk = createAsyncThunk(
       return thunkApi.rejectWithValue(err.message);
     }
   }
-  // {
-  //   condition: (_, thunkApi) => {
-  //     const state = thunkApi.getState();
-  //     const token = state.auth.token;
-  //     if (!token) return false;
-  //     return true;
-  //   },
-  // }
 );
 export const logoutThunk = createAsyncThunk(
   'auth/logout',
@@ -97,14 +88,16 @@ const authSlice = createSlice({
       .addCase(registerThunk.fulfilled, (state, { payload }) => {
         state.isLoading = false;
         state.isAuth = true;
-        state.userData = payload.user;
+
+        state.userData = payload;
       })
       .addCase(refreshThunk.fulfilled, (state, { payload }) => {
         state.isLoading = false;
-        state.authenticated = true;
+        state.isAuth = true;
         state.userData = payload;
         state.isRefreshing = false;
       })
+
       .addCase(refreshThunk.rejected, state => {
         state.isRefreshing = false;
       })
